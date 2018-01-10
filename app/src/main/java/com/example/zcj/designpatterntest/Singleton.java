@@ -33,3 +33,17 @@ public class Singleton {
 		return instance;
 	}
 }
+//双重校验锁 实现难度较为复杂 getIncetance的性能对应用程序很关键
+//使用双重锁的方式，在多线程的情况下能够保持高性能
+public class Singleton {
+	private static Singleton incetance;
+	private Singleton(){}
+	public static Singleton getIncetance{
+		if (instance==null) {
+			synchronized(Singleton.class){
+				instance = new Singleton();
+			}
+			return instance;
+		}
+	}
+}
